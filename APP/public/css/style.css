@@ -2,6 +2,7 @@ body {
 	background:#FAF3EC;
    font-family: 'Josefin Sans',sans-serif;
 }
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #748194;
 }

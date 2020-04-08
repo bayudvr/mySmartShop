@@ -18,25 +18,32 @@
       <div id="right"><h1 class="s2class"><span>SIGN</span><span class="su">UP</span></h1></div>
    </div>
    <div class="c2">
-      <form class="signup" id="signupForm">
+      <center>
+         <img src="{{asset('public/img/MSS.png')}}" alt="" style="width:100px; height:100px; object-fit:contain;">
+      </center>
+      <form class="signup" method="POST" id="signupForm">
          <h1 class="signup1 mt-5">SIGN UP</h1>
-         <br><br><br><br>
-			<input name="username" type="text" placeholder="Username*" class="username" required/>
-			
-			<input name="email" type="text" placeholder="Email*" class="username" required/>
+         @csrf
+         <input name="name" type="text" placeholder="Full Name*" class="username" required/>
+
+			<input name="email" type="email" placeholder="Email*" class="username" required/>
 			
 			<input name="password" type="password" placeholder="Password*" class="username" required/>
+
+		<input name="cpassword" type="password" placeholder="Confirm Password*" class="username" required/>
+ 
          
          <button type="submit" class="btn">Sign Up</button>
       </form>
-      <form class="signin" id="signinForm">
+      <form class="signin" method="POST" id="signinForm">
          
          <h1 class="signup1 mt-5">SIGN IN</h1>
-         <br><br><br><br>
-         <input name="username" type="text" placeholder="Username*" class="username" required/>
+         @csrf
+
+			<input name="email" type="email" placeholder="Email*" class="username" required/>
 			
 		<input name="password" type="password" placeholder="Password*" class="username" required/>
-         
+        
          <button type="submit" class="btn">Get Started</button>
          
          <br><br><br><br>

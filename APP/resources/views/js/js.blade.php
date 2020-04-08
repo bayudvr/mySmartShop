@@ -12,13 +12,47 @@
 <script type="text/javascript">
     $(document).on('submit','#signinForm',function(e) {
         e.preventDefault();
-
-        swal('','Sign In Form Submitted','success');
+        
+        $.ajax({
+            url:'auth',
+            method:'post',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            success:function(response){
+                
+                if(response == 'done'){
+                    
+                    toastr.success('Logged In');
+                    window.location = '';
+                }else{
+                    toastr.error('Account Not Found');
+                }
+            }
+        });
     });
 
     $(document).on('submit','#signupForm',function(e) {
         e.preventDefault();
 
-        swal('','Sign Up Form Submitted','success');
+        $.ajax({
+            url:'register',
+            method:'post',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            success:function(response){
+                
+                if(response == 'done'){
+                    
+                    toastr.success('Account Registered');
+                }else if(response == 'misspass'){
+
+                    toastr.info("Passwords don't match");
+                }else{
+                    toastr.error('Something went wrong, please wait a couple minutes');
+                }
+            }
+        });
     });
 </script>
