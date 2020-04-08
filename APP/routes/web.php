@@ -17,8 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Main
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
+
+// Crud
 Route::get('/logout', 'HomeController@logout');
 Route::post('/auth', 'HomeController@auth');
 Route::post('/register', 'HomeController@register');
+
+// Data
+Route::get('/data/user', 'DataController@user');

@@ -12,16 +12,17 @@ class HomeController extends Controller
 {
     public function index(Request $req){
 
-        if($req->session()->get('user_code') != null){
+        if(session()->get('user_code') != null){
+            
+            if(session()->get('valid_until') > date('Y-m-d H:i:s')){
 
-            if($req->session()->get('valid_until') > date('Y-m-d H:i:s')){
-                
-                return redirect('/home');
+               return redirect('home');
             }else{
-                $req->session()->flush();
+
                 return view('login');
             }
         }else{
+            
             return view('login');
         }
 
@@ -29,17 +30,18 @@ class HomeController extends Controller
 
     public function home(Request $req){
 
-        if($req->session()->get('user_code') != null){
+        if(session()->get('user_code') != null){
             
-            if($req->session()->get('valid_until') > date('Y-m-d H:i:s')){
-                
-                return view('home');
+            if(session()->get('valid_until') > date('Y-m-d H:i:s')){
+
+               return view('home');
             }else{
-                $req->session()->flush();
-                $this->index();
+
+                return redirect('');
             }
         }else{
-            $this->index();
+            
+            return redirect('');
         }
     }
 
@@ -60,7 +62,7 @@ class HomeController extends Controller
 
         if($check_user != null){
             if($req->password == Crypt::decryptString($check_user['MAUSR_PASSWORD'])){
-                $time = date("Y-m-d H:i:s",strtotime("+24 hours"));
+                $time = date("Y-m-d H:i:s",strtotime("+10 minutesS"));
 
                 $req->session()->put('user_code', $check_user['MAUSR_CODE']);
                 $req->session()->put('valid_until', $time);

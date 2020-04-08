@@ -46,6 +46,12 @@
                 if(response == 'done'){
                     
                     toastr.success('Account Registered');
+                    $("#left").addClass("left_hover"); 
+                    $("#right").removeClass("right_hover");
+                    $(".s1class").css({"color":"#EE9BA3"});
+                    $(".s2class").css({"color":"#748194"});
+                    $(".signup").css({"display":"none"});
+                    $(".signin").css({"display":""});
                 }else if(response == 'misspass'){
 
                     toastr.info("Passwords don't match");
