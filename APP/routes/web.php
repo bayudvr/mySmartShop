@@ -20,11 +20,15 @@ use Illuminate\Support\Facades\Route;
 // Main
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
+Route::get('/data_management/user', 'HomeController@user_data');
+Route::get('/data_management/item', 'HomeController@item_data');
+Route::get('/profile', 'HomeController@profile');
 
 // Crud
-Route::get('/logout', 'HomeController@logout');
-Route::post('/auth', 'HomeController@auth');
-Route::post('/register', 'HomeController@register');
+Route::get('/logout', 'AuthController@logout');
+Route::post('/auth', 'AuthController@auth');
+Route::post('/register', 'CrudController@register');
 
 // Data
 Route::get('/data/user', 'DataController@user');
+Route::get('/data/item', 'DataController@item');

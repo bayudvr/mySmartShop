@@ -13,7 +13,8 @@ class DataController extends Controller
     		'table_name' => 'MAUSR'
     	]);
     	$no = 1;
-    	$data = '<table class="table table-striped mb-3" id="tdata">
+    	$data = '<button class="btn btn-fab btn-primary mb-3" onclick="showDataUser();"><i class="fa fa-retweet"></i></button>
+    	<table class="table table-striped mb-3" id="tdata">
     						<thead>
     							<tr>
     								<th>No.</th>
@@ -34,9 +35,13 @@ class DataController extends Controller
 							<button class="dropdown btn btn-outline-success btn-fab btn-round" data-toggle="dropdown">
 								<i class="fa fa-ellipsis-v"></i>
 							</button>
-							<div class="dropdown-menu">
-								<button class="btn btn-fab btn-sm btn-success"><i class="fa fa-edit"></i></button>
-								<button class="btn btn-fab btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+							<div class="dropdown-menu pl-auto pr-auto">
+								<a class="dropdown-item">
+									<button class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>
+								</a>
+								<a class="dropdown-item">
+									<button class="btn btn-danger"><i class="fa fa-trash"></i> Remove</button>
+								</a>
 							</div>
 						</td>
     				</tr>';

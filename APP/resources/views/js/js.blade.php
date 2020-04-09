@@ -12,6 +12,8 @@
 <script type="text/javascript">
     $(document).on('submit','#signinForm',function(e) {
         e.preventDefault();
+
+        $('#siBtn').attr('disabled',true);
         
         $.ajax({
             url:'auth',
@@ -25,8 +27,10 @@
                     
                     toastr.success('Logged In');
                     window.location = '';
+                    $('#siBtn').attr('disabled',false);
                 }else{
                     toastr.error('Account Not Found');
+                    $('#siBtn').attr('disabled',false);
                 }
             }
         });
@@ -34,6 +38,8 @@
 
     $(document).on('submit','#signupForm',function(e) {
         e.preventDefault();
+
+        $('#suBtn').attr('disabled',true);
 
         $.ajax({
             url:'register',
@@ -52,11 +58,14 @@
                     $(".s2class").css({"color":"#748194"});
                     $(".signup").css({"display":"none"});
                     $(".signin").css({"display":""});
+                    $('#suBtn').attr('disabled',false);
                 }else if(response == 'misspass'){
 
                     toastr.info("Passwords don't match");
+                    $('#suBtn').attr('disabled',false);
                 }else{
                     toastr.error('Something went wrong, please wait a couple minutes');
+                    $('#suBtn').attr('disabled',false);
                 }
             }
         });

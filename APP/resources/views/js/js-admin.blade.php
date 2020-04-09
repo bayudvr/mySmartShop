@@ -18,26 +18,6 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        showData();       
-    });
-
-    function showData(){
-
-        $.ajax({
-            url:'data/user',
-            method:'get',
-            dataType:'json',
-            processData: false,
-            contentType: false,
-            success:function(data){
-
-                $('#data').html(data);
-                $('#tdata').DataTable();
-                toastr.success('Data Retrieved!', 'All Set');
-            }
-        });
-    }
     function logout(){
 
         $.confirm({
@@ -50,7 +30,7 @@
                     text:'Yes',
                     btnClass:'btn-danger',
                     action:function(){
-                        window.location = 'logout';
+                        window.location = '../logout';
                     }
                 },
                 nope:{

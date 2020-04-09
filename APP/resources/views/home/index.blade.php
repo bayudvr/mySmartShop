@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Home</title>
     @include('plugin.plugin-admin')
 </head>
 <body class="landing-page">
@@ -23,11 +23,11 @@
     		<div class="section text-center">
     			<div class="row">
     				<div class="col-md-12">
-    					<h2 class="title">Dashboard</h2>
+    					<h2 class="title">Welcome</h2>
     				</div>
     			</div>
     		</div>
-    		<div class="table-responsive pb-5 mb-5" id="data"></div>
+    		<h5>This is where your statistic should be</h5>
     	</div>
     </div>
 </body>

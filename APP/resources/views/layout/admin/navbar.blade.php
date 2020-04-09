@@ -13,7 +13,7 @@
                 <ul class="navbar-nav ml-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="home">
-						 	<i class="fa fa-dashboard"></i> Dashboard
+						 	<i class="fa fa-home"></i> Home
 						</a>
 					</li>
                     <li class="dropdown nav-item">
@@ -21,10 +21,10 @@
                            <i class="fa fa-database"></i> Data Management
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                        <a href="#" class="dropdown-item">
+                        <a href="data_management/user" class="dropdown-item">
                            Users
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="data_management/items" class="dropdown-item">
                            Items
                         </a>
                         </div>
@@ -39,7 +39,7 @@
                            <i class="fa fa-id-badge"></i> Account
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                        <a href="#" class="dropdown-item">
+                        <a href="profile" class="dropdown-item">
                            Profile
                         </a>
                         <a href="#" class="dropdown-item" onclick="logout()">

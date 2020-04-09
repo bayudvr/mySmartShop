@@ -33,7 +33,7 @@
 		<input name="cpassword" type="password" placeholder="Confirm Password*" class="username" required/>
  
          
-         <button type="submit" class="btn">Sign Up</button>
+         <button type="submit" id="suBtn" class="btn">Sign Up</button>
       </form>
       <form class="signin" method="POST" id="signinForm">
          
@@ -44,7 +44,7 @@
 			
 		<input name="password" type="password" placeholder="Password*" class="username" required/>
         
-         <button type="submit" class="btn">Get Started</button>
+         <button type="submit" id="siBtn" class="btn">Get Started</button>
          
          <br><br><br><br>
          <a href=""><p class="signup2">Forget Password?</p></a>
