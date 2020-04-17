@@ -49,4 +49,11 @@
         });
     }
     
+    function editUser(id,name){
+
+        $.confirm({
+            title:'',
+            content:'url:../form/edit/user/'+id+'',
+        });
+    }
 </script>

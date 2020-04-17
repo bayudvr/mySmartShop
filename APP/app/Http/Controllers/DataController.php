@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Crypt;
 
 class DataController extends Controller
 {
@@ -26,23 +29,20 @@ class DataController extends Controller
     						</thead>
     						<tbody>';
     	foreach($getData as $d){
+			$id = "'".$d->MAUSR_CODE."'";
+			$name = "'".$d->MAUSR_FULL_NAME."'";
     		$data .= '<tr>
     					<td>'.$no++.'</td>
     					<td>'.$d->MAUSR_CODE.'</td>
     					<td>'.$d->MAUSR_FULL_NAME.'</td>
     					<td>'.$d->MAUSR_EMAIL_ADDRESS.'</td>
 						<td>
-							<button class="dropdown btn btn-outline-success btn-fab btn-round" data-toggle="dropdown">
-								<i class="fa fa-ellipsis-v"></i>
+							<button class="btn btn-success btn-sm btn-fab btn-round" onclick="editUser('.$id.','.$name.')">
+								<i class="fa fa-edit"></i>
 							</button>
-							<div class="dropdown-menu pl-auto pr-auto">
-								<a class="dropdown-item">
-									<button class="btn btn-success"><i class="fa fa-edit"></i> Edit</button>
-								</a>
-								<a class="dropdown-item">
-									<button class="btn btn-danger"><i class="fa fa-trash"></i> Remove</button>
-								</a>
-							</div>
+							<button class="btn btn-danger btn-sm btn-fab btn-round" onclick="hapusUser('.$id.','.$name.')">
+								<i class="fa fa-trash"></i>
+							</button>
 						</td>
     				</tr>';
     	}

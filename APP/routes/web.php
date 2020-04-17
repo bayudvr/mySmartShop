@@ -32,3 +32,6 @@ Route::post('/register', 'CrudController@register');
 // Data
 Route::get('/data/user', 'DataController@user');
 Route::get('/data/item', 'DataController@item');
+
+//Form
+Route::get('/form/edit/user/{id}', 'FormController@user');
