@@ -13,8 +13,7 @@
       <div class="c11">
          <h1 class="mainhead">PILIH SALAH SATU DIBAWAH</h1>
       </div>
-      <div id="left"><h1 class="s1class"><span>SIGN</span><span class="su">IN</span>
-      </h1></div>
+      <div id="left"><h1 class="s1class"><span>SIGN</span><span class="su">IN</span></h1></div>
       <div id="right"><h1 class="s2class"><span>SIGN</span><span class="su">UP</span></h1></div>
    </div>
    <div class="c2">
