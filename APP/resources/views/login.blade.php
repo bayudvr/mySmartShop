@@ -1,57 +1,62 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    @include('plugin.plugin')
-</head>
-<body>
+@extends('layouts.app')
 
-<div class="container">
-   <div class="c1">
-      
-      <div class="c11">
-         <h1 class="mainhead">PILIH SALAH SATU DIBAWAH</h1>
-      </div>
-      <div id="left"><h1 class="s1class"><span>SIGN</span><span class="su">IN</span></h1></div>
-      <div id="right"><h1 class="s2class"><span>SIGN</span><span class="su">UP</span></h1></div>
-   </div>
-   <div class="c2">
-      <center>
-         <img src="{{asset('public/img/MSS.png')}}" alt="" style="width:100px; height:100px; object-fit:contain;">
-      </center>
-      <form class="signup" method="POST" id="signupForm">
-         <h1 class="signup1 mt-5">SIGN UP</h1>
-         @csrf
-         <input name="name" type="text" placeholder="Full Name*" class="username" required/>
+@section('title','MSS | User Login Page')
 
-			<input name="email" type="email" placeholder="Email*" class="username" required/>
-			
-			<input name="password" type="password" placeholder="Password*" class="username" required/>
+@section('body_class','bg-default')
 
-		<input name="cpassword" type="password" placeholder="Confirm Password*" class="username" required/>
- 
-         
-         <button type="submit" id="suBtn" class="btn">Sign Up</button>
-      </form>
-      <form class="signin" method="POST" id="signinForm">
-         
-         <h1 class="signup1 mt-5">SIGN IN</h1>
-         @csrf
+@section('content')
 
-			<input name="email" type="email" placeholder="Email*" class="username" required/>
-			
-		<input name="password" type="password" placeholder="Password*" class="username" required/>
-        
-         <button type="submit" id="siBtn" class="btn">Get Started</button>
-         
-         <br><br><br><br>
-         <a href=""><p class="signup2">Forget Password?</p></a>
-      </form>
-      
-   </div>
-</div>
+    <div class="main-content">
+        <div class="header bg-gradient-primary py-7 py-lg-8">
+            <div class="separator separator-bottom separator-skew zindex-100">
+                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+        </div>
 
-</body>
-</html>
-@include('js.js')
+        <div class="container mt--8 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="card bg-secondary border-0 mb-0">
+                        <div class="card-header bg-transparent pb-5">
+                            <h1>MSS | User Login Page</h1>
+                        </div>
+                        <div class="card-body px-lg-5 py-lg-5">
+                            <form method="POST" id="loginForm">
+                                @csrf
+                                <div class="form-group mb-3">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Username or Email" type="text" name="cred" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-group-merge input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                        </div>
+                                        <input class="form-control" placeholder="Password" type="password" name="MAUSR_PASSWORD">
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                                </div>
+                            </form>
+                            <p>Don't Have an account? click <a href="signup">here</a> to register your business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@push('styles')
+@endpush
+
+@push('scripts')
+@endpush

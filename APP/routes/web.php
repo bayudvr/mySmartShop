@@ -13,25 +13,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Main
-Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@home');
-Route::get('/data_management/user', 'HomeController@user_data');
-Route::get('/data_management/item', 'HomeController@item_data');
-Route::get('/profile', 'HomeController@profile');
-
-// Crud
-Route::get('/logout', 'AuthController@logout');
-Route::post('/auth', 'AuthController@auth');
-Route::post('/register', 'CrudController@register');
+// Auth
+Route::get('/', 'AuthController@index');
+Route::post('/login','AuthController@login');
+Route::get('/signup','AuthController@signup');
+Route::get('/logout','AuthController@logout');
 
 // Data
-Route::get('/data/user', 'DataController@user');
-Route::get('/data/item', 'DataController@item');
+// User Panel
+// Profile
+Route::get('/data/profile/{key}','Data\ProfileController@get_profile');
+// Business
+Route::get('/data/businesses','Data\BusinessController@get');
+// Subscription
+Route::get('/data/user_package','Data\PackageController@get');
 
-//Form
-Route::get('/form/edit/user/{id}', 'FormController@user');
+// Form
+// User Panel
+// Profile
+Route::get('/form/profile/change_picture','Form\ProfileController@change_picture');
+// Business
+Route::get('/form/business/add','Form\BusinessController@add');
+Route::get('/form/business/edit/{id}','Form\BusinessController@edit');
+
+// Misc
+Route::post('/misc/signup','MiscController@signup');
+// User Panel
+// Profile
+Route::post('/misc/profile/change_profile_picture','Misc\ProfileController@change_profile_picture');
+Route::post('/misc/profile/edit_profile','Misc\ProfileController@edit_profile');
+// Business
+Route::post('/misc/business/add','Misc\BusinessController@add');
+Route::post('/misc/business/edit','Misc\BusinessController@edit');
+Route::get('/misc/business/open/{id}','Misc\BusinessController@open');
+Route::get('/misc/business/close/{id}','Misc\BusinessController@close');
+Route::get('/misc/business/delete/{id}','Misc\BusinessController@delete');
+
+// Panel
+Route::get('/panel_redirect','PanelController@panel_redirect');
+// User Panel
+Route::get('/dashboard','PanelController@index');
+Route::get('/profile','PanelController@profile');
+// Master-data
+Route::get('/businesses','PanelController@businesses');
+Route::get('/employees','PanelController@employees');
+// Subscription
+Route::get('/subscription','PanelController@subscription');
+// Cashier Panel
+Route::get('/cashier','Cashier\PanelController@index');
+// Inventories Panel
+Route::get('/inventories','Inventories\PanelController@index');
